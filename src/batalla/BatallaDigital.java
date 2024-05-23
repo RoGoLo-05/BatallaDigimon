@@ -21,14 +21,36 @@ public class BatallaDigital {
         return new Digimon(digimonElegido);
     }
 	
-	public Digimon elige() {
-        System.out.println("Elige un Digimon de tu equipo: ");
+	public Digimon elige() {  
         ArrayList<Digimon> equipo = domador.getEquipo();
         for (int i = 0; i < equipo.size(); i++) {
             Digimon digimon = equipo.get(i);
             System.out.printf((i + 1) + ". " + digimon.getNombre() + " (Nivel: " + digimon.getNivel() +  ", Salud: " + digimon.getPuntos_salud() + ", DP1: " + digimon.getDp1() + ", DP2: " + digimon.getDp2() + ").");
         }
-        int opcion = leer.nextInt() - 1; //Se le resta uno porque tienes que elegir del 1 al 3, pero en el ArratyList los digimones van del 0 al 2.
+        
+        boolean aux1 = true;
+		String entrada1 = "";
+		int digimonElegido = 0;
+
+		while(aux1) {
+			try {
+				System.out.println("Elige un Digimon de tu equipo: ");
+				entrada1 = leer.nextLine();
+				entrada1 = entrada1.replaceAll(" ", "");
+				digimonElegido = Integer.parseInt(entrada1);
+
+				if (digimonElegido<=0) {
+					System.out.println("Elige una opcion posible");
+				} else {
+					aux1 = false;
+				}
+
+			} catch(NumberFormatException e) {
+				System.out.println("Error. Introduce un numero");
+			}
+		}
+		
+        int opcion = digimonElegido - 1; //Se le resta uno porque tienes que elegir del 1 al 3, pero en el ArratyList los digimones van del 0 al 2.
         return equipo.get(opcion); //Accede al Digimon en la posición choice dentro del ArrayList team.
     }
 	
@@ -41,7 +63,29 @@ public class BatallaDigital {
             System.out.println("1. Ataque 1");
             System.out.println("2. Ataque 2");
             System.out.println("3. Capturar enemigo");
-            int opcion = leer.nextInt();
+            
+            boolean aux1 = true;
+    		String entrada1 = "";
+    		int opcion = 0;
+
+    		while(aux1) {
+    			try {
+    				System.out.println("Elige un Digimon de tu equipo: ");
+    				entrada1 = leer.nextLine();
+    				entrada1 = entrada1.replaceAll(" ", "");
+    				opcion = Integer.parseInt(entrada1);
+
+    				if (opcion<1 || opcion>3) {
+    					System.out.println("Elige una opcion entre 1 y 3");
+    				} else {
+    					aux1 = false;
+    				}
+
+    			} catch(NumberFormatException e) {
+    				System.out.println("Error. Introduce un numero");
+    			}
+    		}
+    		
             int danio;
             switch (opcion) {
                 case 1:
