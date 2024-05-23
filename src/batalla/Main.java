@@ -47,7 +47,7 @@ public class Main {
                 batalla.pelea();
                 break;
     		case 2:
-                System.out.println("Saliendo del juego.");
+                System.out.println("Fin del programa.");
                 bucle = false;
                 break;
     		}

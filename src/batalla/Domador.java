@@ -44,4 +44,13 @@ public class Domador {
             System.out.println("No se puede unir.");
         }
     }
+	
+	public void removerDigimonDerrotados() {
+	    for (int i = 0; i < equipo.size(); i++) {
+	        if (equipo.get(i).getPuntos_salud() <= 0) {
+	        	equipo.remove(i);
+	            i--; // Decrementar el índice para no omitir el siguiente elemento
+	        }
+	    }
+	}
 }

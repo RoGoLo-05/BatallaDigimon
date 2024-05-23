@@ -25,7 +25,7 @@ public class BatallaDigital {
         ArrayList<Digimon> equipo = domador.getEquipo();
         for (int i = 0; i < equipo.size(); i++) {
             Digimon digimon = equipo.get(i);
-            System.out.printf((i + 1) + ". " + digimon.getNombre() + " (Nivel: " + digimon.getNivel() +  ", Salud: " + digimon.getPuntos_salud() + ", DP1: " + digimon.getDp1() + ", DP2: " + digimon.getDp2() + ").");
+            System.out.printf((i + 1) + ". " + digimon.getNombre() + " (Nivel: " + digimon.getNivel() +  ", Salud: " + digimon.getPuntos_salud() +", Ataque: " + digimon.getPuntos_ataque() + ", DP1: " + digimon.getDp1() + ", DP2: " + digimon.getDp2() + ").");
         }
         
         boolean aux1 = true;
@@ -34,7 +34,7 @@ public class BatallaDigital {
 
 		while(aux1) {
 			try {
-				System.out.println("Elige un Digimon de tu equipo: ");
+				System.out.println("\nElige un Digimon de tu equipo: ");
 				entrada1 = leer.nextLine();
 				entrada1 = entrada1.replaceAll(" ", "");
 				digimonElegido = Integer.parseInt(entrada1);
@@ -113,6 +113,7 @@ public class BatallaDigital {
         }
         if (miDigimon.getPuntos_salud() <= 0) {
             System.out.println("Tu Digimon " + miDigimon.getNombre() + " ha sido derrotado.");
+            domador.removerDigimonDerrotados();
         } else if (enemigo.getPuntos_salud() <= 0) {
             System.out.println("El enemigo " + enemigo.getNombre() + " ha sido derrotado.");
         }
