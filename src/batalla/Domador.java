@@ -39,9 +39,9 @@ public class Domador {
 	public void captura(Digimon digimon) {
         if (digimon.getPuntos_salud() <= (digimon.getPuntos_salud() - 20)) { //Se captura el Digimon si tiene 20 puntos menos de salud que al principio
             this.equipo.add(digimon); //Añado el digimon al equipo
-            System.out.println(digimon.getNombre() + " se ha unido a su equipo");
+            System.out.println(digimon.getNombre() + " se ha unido a su equipo.");
         } else {
-            System.out.println("No se puede unir");
+            System.out.println("No se puede unir.");
         }
     }
 }
