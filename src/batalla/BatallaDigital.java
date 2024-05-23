@@ -35,8 +35,8 @@ public class BatallaDigital {
 	public void pelea() {
         Digimon miDigimon = elige();
         while (miDigimon.getPuntos_salud() > 0 && enemigo.getPuntos_salud() > 0) {
-            System.out.println("\nTu Digimon: " + miDigimon.getNombre() + " (Nivel: " + miDigimon.getNivel() + ", Salud: " + miDigimon.getPuntos_salud() + ", Ataque: " + miDigimon.getPuntos_ataque() + ", DP1: " + miDigimon.getDp1() + ", DP2: " + miDigimon.getDp2() + ")");
-            System.out.println("Enemigo: " + enemigo.getNombre() + " (Nivel: " + miDigimon.getNivel() + ", Salud: " + enemigo.getPuntos_salud() + ", Ataque: " + miDigimon.getPuntos_ataque() + ", DP1: " + enemigo.getDp1() + ", DP2: " + enemigo.getDp2() + ")");
+            System.out.println("\nTu Digimon: " + miDigimon.getNombre() + " (Nivel: " + miDigimon.getNivel() + ", Salud: " + miDigimon.getPuntos_salud() + ", Ataque: " + miDigimon.getPuntos_ataque() + ", DP1: " + miDigimon.getDp1() + ", DP2: " + miDigimon.getDp2() + ").");
+            System.out.println("Enemigo: " + enemigo.getNombre() + " (Nivel: " + miDigimon.getNivel() + ", Salud: " + enemigo.getPuntos_salud() + ", Ataque: " + miDigimon.getPuntos_ataque() + ", DP1: " + enemigo.getDp1() + ", DP2: " + enemigo.getDp2() + ").");
             System.out.println("\nOpciones:");
             System.out.println("1. Ataque 1");
             System.out.println("2. Ataque 2");
