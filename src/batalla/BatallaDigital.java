@@ -22,7 +22,7 @@ public class BatallaDigital {
     }
 	
 	public Digimon elige() {
-        System.out.println("Elige un Digimon de tu equipo:");
+        System.out.println("Elige un Digimon de tu equipo: ");
         ArrayList<Digimon> equipo = domador.getEquipo();
         for (int i = 0; i < equipo.size(); i++) {
             Digimon digimon = equipo.get(i);
