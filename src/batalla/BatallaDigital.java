@@ -26,7 +26,7 @@ public class BatallaDigital {
         ArrayList<Digimon> equipo = domador.getEquipo();
         for (int i = 0; i < equipo.size(); i++) {
             Digimon digimon = equipo.get(i);
-            System.out.printf((i + 1) + ". " + digimon.getNombre() + " (Nivel: " + digimon.getNivel() +  ", Salud: " + digimon.getPuntos_salud() + ", DP1: " + digimon.getDp1() + ", DP2: " + digimon.getDp2() + ")");
+            System.out.printf((i + 1) + ". " + digimon.getNombre() + " (Nivel: " + digimon.getNivel() +  ", Salud: " + digimon.getPuntos_salud() + ", DP1: " + digimon.getDp1() + ", DP2: " + digimon.getDp2() + ").");
         }
         int opcion = leer.nextInt() - 1; //Se le resta uno porque tienes que elegir del 1 al 3, pero en el ArratyList los digimones van del 0 al 2.
         return equipo.get(opcion); //Accede al Digimon en la posición choice dentro del ArrayList team.
