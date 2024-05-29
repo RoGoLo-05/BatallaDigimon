@@ -4,39 +4,84 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * La clase Domador representa a un domador de Digimon en el sistema de batalla.
+ * Cada domador tiene un nombre y un equipo de Digimon. Puede capturar nuevos Digimon
+ * y reemplazar Digimon en su equipo si es necesario.
+ * 
+ * @author Roberto
+ * @version 1.0
+ */
 public class Domador {
 
 	private String nombre;
 	private ArrayList<Digimon> equipo; //ArrayList de Digimones, de la clase Digimon
 	
+	/**
+     * Constructor de la clase Domador.
+     * Inicializa el nombre del domador y genera un equipo con un Digimon aleatorio.
+     * 
+     * @param nombre El nombre del domador.
+     */
 	public Domador(String nombre) {
 		this.nombre = nombre;
 		this.equipo = new ArrayList<>();
 		this.equipo.add(generarDigimonAleatorio()); //Tendrá un digimon aleatorio en su equipo desde el principio.
 	}
 	
+	/**
+     * Obtiene el nombre del domador.
+     * 
+     * @return El nombre del domador.
+     */
 	public String getNombre() {
 		return nombre;
 	}
 
+	/**
+     * Establece el nombre del domador.
+     * 
+     * @param nombre El nuevo nombre del domador.
+     */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
+	/**
+     * Obtiene el equipo de Digimon del domador.
+     * 
+     * @return El equipo de Digimon.
+     */
 	public ArrayList<Digimon> getEquipo() {
 		return equipo;
 	}
 
+	/**
+     * Establece el equipo de Digimon del domador.
+     * 
+     * @param equipo El nuevo equipo de Digimon.
+     */
 	public void setEquipo(ArrayList<Digimon> equipo) {
 		this.equipo = equipo;
 	}
 
+	/**
+     * Genera un Digimon aleatorio para agregar al equipo del domador.
+     * 
+     * @return Un Digimon aleatorio.
+     */
 	private Digimon generarDigimonAleatorio() {
         String[] digimones = {"Agumon", "Gabumon", "Patamon"};
         String digimonElegido = digimones[new Random().nextInt(digimones.length)];
         return new Digimon(digimonElegido);
     }
 	
+	/**
+     * Captura un Digimon si cumple con las condiciones de salud y añade o reemplaza
+     * un Digimon en el equipo del domador.
+     * 
+     * @param digimon El Digimon que se desea capturar.
+     */
 	public void captura(Digimon digimon) {
 		Scanner leer = new Scanner(System.in);
 	    if (equipo.size() < 3) { // Verifica si el equipo tiene menos de 3 Digimon
@@ -68,7 +113,7 @@ public class Domador {
 	    					if (opcion < 1 || opcion > 3) {
 	    						System.out.println("Por favor, ingresa un número válido.");
 	    					} else {
-	    						// Reemplaza el Digimon seleccionado con el nuevo Digimon si cumple con el requisito de vida
+	    							// Reemplaza el Digimon seleccionado con el nuevo Digimon si cumple con el requisito de vida
 	    							Digimon digimonAnterior = equipo.get(opcion - 1);
 	    							equipo.set(opcion - 1, digimon);
 	    							System.out.println(digimon.getNombre() + " ha reemplazado a " + digimonAnterior.getNombre() + " en tu equipo.");
@@ -86,6 +131,10 @@ public class Domador {
 	    }
 	}
 	
+	/**
+     * Remueve los Digimon del equipo del domador que hayan sido derrotados (es decir, 
+     * aquellos cuya salud es menor o igual a 0).
+     */
 	public void removerDigimonDerrotados() {
 	    equipo.removeIf(digimon -> digimon.getPuntos_salud() <= 0);
 	}
