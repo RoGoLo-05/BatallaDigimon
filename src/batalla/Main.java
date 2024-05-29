@@ -43,8 +43,12 @@ public class Main {
     		
     		switch(opcion) {
     		case 1:
-    			BatallaDigital batalla = new BatallaDigital(domador);
-                batalla.pelea();
+    			if (domador.getEquipo().isEmpty()) {
+                    System.out.println("No tienes Digimons en tu equipo. No puedes iniciar una batalla.");
+                } else {
+                    BatallaDigital batalla = new BatallaDigital(domador);
+                    batalla.pelea();
+                }
                 break;
     		case 2:
                 System.out.println("Fin del programa.");

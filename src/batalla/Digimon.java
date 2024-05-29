@@ -11,11 +11,12 @@ public class Digimon {
 	private int puntos_salud;
 	private int dp1;
 	private int dp2;
-	Random random = new Random();
+	private Random random;
 	
 	
 	public Digimon(String nombre) { //Constructor, recibe el nombre del digimon
 		this.nombre = nombre;
+		this.random = new Random();
 		this.nivel = random.nextInt(5) + 1;
 		this.puntos_ataque = 5 * this.nivel;
 		this.puntos_salud = 10 * this.nivel;
